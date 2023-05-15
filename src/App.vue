@@ -179,7 +179,7 @@
       <b-row align-v="center">
         <b-col lg="4" md="4" sm="4" xs="12">
         
-        <b-img src="/outlier.png" height="60"></b-img>
+        <b-img src="/cham.png" height="60"></b-img>
 
         </b-col>
         <b-col lg="4" md="4" sm="4" xs="6">
@@ -235,11 +235,11 @@ export default {
   },
   metaInfo() {
     return { 
-      title: "wallet.ecosys",
+      title: "Outlier Art",
       meta: [
-        { vmid: 'description', name: 'description', content:  'wallet.ecosys' },
-        { vmid: 'og:title', property: 'og:title', content: "wallet.ecosys" },
-        { vmid: 'og:site_name', property: 'og:site_name', content: 'wallet.ecosys' },
+        { vmid: 'description', name: 'description', content:  'Outlier Art' },
+        { vmid: 'og:title', property: 'og:title', content: "Outlier Art" },
+        { vmid: 'og:site_name', property: 'og:site_name', content: 'Outlier Art' },
         { vmid: 'og:type', property: 'og:type', content: 'website' },    
         { name: 'robots', content: 'index,follow' } 
       ]

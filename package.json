@@ -1,10 +1,10 @@
 {
-  "name": "ecosys-wallet",
+  "name": "outlier-art",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service --openssl-legacy-provider build",
     "lint": "vue-cli-service lint",
     "production": "vue-cli-service serve --mode production"
   },
