@@ -1,0 +1,99 @@
+// custom.scss
+
+// All of your custom SCSS variables go first
+$primary:       #284268 ;
+$secondary:     #4a70a8 ;
+$light:         #f1f1f1 ;
+$dark:          #000000 ;
+$info:			#4527A0;
+$success:		#2E7D32;
+$warning:		#FF6F00;
+$danger:		#C62828;
+
+$palette11:            #f44260;
+$palette12:            #3c5ba0;
+$palette13:            #7070e8;
+$palette14:            #f27740;
+$palette15:            #3d9fc1;
+$palette16:            #d34040;
+$palette17:            #e6c7b4;
+
+$palette21:            #e5491f;
+$palette22:            #2058d3;
+$palette23:            #7462f9;
+$palette24:            #40f2d0;
+$palette25:            #123676;
+$palette26:            #9c223d;
+$palette27:            #e6c7b4;
+
+$palette31:            #ce2d42;
+$palette32:            #082880; 
+$palette33:            #7462f9;
+$palette34:            #f4b53f;
+$palette35:            #123676;
+$palette36:            #9c223d;
+$palette37:            #e6c7b4;
+
+$palette11: $palette11 !default;
+$palette12: $palette12 !default;
+$palette13: $palette13 !default;
+$palette14: $palette14 !default;
+$palette15: $palette15 !default;
+$palette16: $palette16 !default;
+$palette17: $palette17 !default;
+
+$palette21: $palette21 !default;
+$palette22: $palette22 !default;
+$palette23: $palette23 !default;
+$palette24: $palette24 !default;
+$palette25: $palette25 !default;
+$palette26: $palette26 !default;
+$palette27: $palette27 !default;
+
+$palette31: $palette31 !default;
+$palette32: $palette32 !default;
+$palette33: $palette33 !default;
+$palette34: $palette34 !default;
+$palette35: $palette35 !default;
+$palette36: $palette36 !default;
+$palette37: $palette37 !default;
+
+
+// This table defines the theme colors (variant names)
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    'palette11': $palette11,
+    'palette12': $palette12,
+    'palette13': $palette13,
+    'palette14': $palette14,
+    'palette15': $palette15,
+    'palette16': $palette16,
+    'palette17': $palette17,
+
+    'palette21': $palette21,
+    'palette22': $palette22,
+    'palette23': $palette23,
+    'palette24': $palette24,
+    'palette25': $palette25,
+    'palette26': $palette26,
+    'palette27': $palette27,
+
+    'palette31': $palette31,
+    'palette32': $palette32,
+    'palette33': $palette33,
+    'palette34': $palette34,
+    'palette35': $palette35,
+    'palette36': $palette36,
+    'palette37': $palette37,
+  ),
+  $theme-colors
+);
+
+$font-family-base: 'Helvetica Neue';
+$font-weight-base: 200;
+
+//then bootstrap & bootstrap-vue should be added after 
+//so that they inherit the custom SCSS variables
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
