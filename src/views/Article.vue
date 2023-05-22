@@ -99,10 +99,10 @@
               <b-icon v-else icon="heart-fill"></b-icon>
               <span class="subheading mx-1">{{ article.likes }}</span>
             </b-button>
-            <b-button class="ml-2" variant="primary" size="sm" :to="'/editarticle/' + article.id">
+            <b-button v-if="currentUser" class="ml-2" variant="primary" size="sm" :to="'/editarticle/' + article.id">
               <b-icon icon="pencil-square" />
             </b-button>
-            <DeleteModal class="mt-2" :path="'article/deleteArticle'" :id="article.id" />
+            <DeleteModal v-if="currentUser" class="mt-2" :path="'article/deleteArticle'" :id="article.id" />
           </b-col>
         </b-row>
         <b-row>

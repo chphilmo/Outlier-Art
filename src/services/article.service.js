@@ -93,6 +93,19 @@ class ArticleService {
       });
   }
 
+  editSection(section) {
+    return api
+      .post("/article/section/edit/" + section.id, {
+        title: section.title,
+        content: section.content,
+        imageUrl: section.imageUrl
+      })
+      .then(response => {
+        console.log(response);
+        return response;
+      });
+  }
+
 }
 
 export default new ArticleService();

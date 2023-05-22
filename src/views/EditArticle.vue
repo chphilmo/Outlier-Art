@@ -59,7 +59,7 @@
 
           <img v-if="imageUrl" :src="imageUrl" height="200">
 
-          <img v-if="imgUrl.imageUrl" :src="imgUrl.imageUrl" height="200">
+          <div class="add">{{ imgUrl.ipfsHash }}</div>
         </div>
 
         <div>
@@ -161,7 +161,7 @@ export default {
         title: this.title,
         section: this.sectionId,
         category: this.category,
-        imageUrl: this.imgUrl.imageUrl || this.imageUrl
+        imageUrl: "https://ipfs.io/ipfs/" + this.imgUrl.ipfsHash || this.imageUrl
       }
 
       this.$store.dispatch('article/editArticle', articleData)

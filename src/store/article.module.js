@@ -167,6 +167,22 @@ actions: {
         return Promise.reject(error)
       }
     )
+  },
+  editSection({ commit }, payload) {
+    return ArticleService.editSection(payload).then(
+      (data) => {
+        commit('createSection', data)
+        commit('setMessage', 'Section edited', { root: true })
+        return Promise.resolve(data)
+      },
+      (error) => {
+        if (error.response && error.response.status === 403) {
+          EventBus.dispatch('logout')
+        }
+        commit('setMessage', error, { root: true })
+        return Promise.reject(error)
+      }
+    )
   }
 },
 mutations: {

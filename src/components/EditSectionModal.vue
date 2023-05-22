@@ -48,7 +48,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('article.module', {
+        ...mapGetters('article', {
             loadedImg: 'loadedSectionImgUrl'
         }),
         imgUrl() {
@@ -102,7 +102,7 @@ export default {
                 imageUrl: this.imgUrl.imageUrl || this.imageUrl,
             }
             this.$emit('updateSection', sectionData)
-            this.$store.dispatch('article.module/editSection', sectionData)
+            this.$store.dispatch('article/editSection', sectionData)
 
             this.$nextTick(() => {
                 this.$bvModal.hide('modal-prevent-closing2')
@@ -123,7 +123,7 @@ export default {
             })
             fileReader.readAsDataURL(files[0])
             this.image = files[0]
-            this.$store.dispatch('article.module/uploadSectionImg', files[0])
+            this.$store.dispatch('article/uploadSectionImg', files[0])
 
         },
     }
