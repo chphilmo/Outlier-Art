@@ -151,6 +151,20 @@ export const auth = {
         }
       );
     },
+    deleteUser({ commit }) {
+      return AuthService.deleteUser().then(
+        data => {
+          commit('logout');
+          commit('nft/setMessage', data.message, { root: true })
+          return Promise.resolve(data);
+        },
+        error => {
+          console.log(error)
+          commit('nft/setMessage', "Error deleting User", { root: true })
+          return Promise.reject(error);
+        }
+      );
+    },
     sendVerify ({ commit, dispatch }) {
       return AuthService.sendVerify().then(
         (data) => {

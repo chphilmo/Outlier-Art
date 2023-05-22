@@ -14,36 +14,47 @@
                 <h1 class="title">Outlier art</h1>
                 <!--<b-img class="mb-3" src="/outlier.png" min-height="300px" fluid></b-img>-->
 
+                <!--<b-img class="mb-3" src="/outlier.png" min-height="300px" fluid></b-img>-->
 
+                <b-button-group class="mt-3" v-if="!currentUser">
+                  <b-button variant="palette21" size="sm" @click.prevent="web3Login">WEB3</b-button>
+                  <b-button variant="palette22" size="sm" :to="'/register'"><b-icon icon="person-plus-fill" /></b-button>
+                  <b-button variant="palette23" size="sm" :to="'/login'"><b-icon icon="person-fill" /></b-button>
 
+                </b-button-group>
+                <div v-else>
+                <b-button-group class="mt-3">
+                  <b-button variant="palette31" size="sm" :to="''"><b-icon icon="plus" />Projet</b-button>
+                  <b-button variant="palette32" size="sm" :to="'/mint'"><b-icon icon="plus" />NFA</b-button>
+                  
+                </b-button-group>
+                <b-button class="mt-3 ml-2" variant="palette34" size="sm" :to="'/createarticle'"><b-icon icon="plus" />Article</b-button>
+                </div>
+      
 
               </div>
 
             </b-col>
             <b-col md="6" sm="6" xs="6" class="mt-3">
-
+              <div class="container">
               <div class="content3 text-dark">
                 <h4>Welcome to Outlier art</h4>
-                <div>
-                  <b>ƒ</b> Crowdsourcing collaborative design
-                </div>
-                <div>
-                  <b>ƒ</b> Open source knowledge access
-                </div>
-                <div>
-                  <b>ƒ</b> Crypto art and currency trading
-                </div>
-
-                <div>
-                  <b>ƒ</b> Decentralized Application marketplace
-                </div>
-
+                <h6>
+                  Media Interactive Design
+                </h6>
+                <h6>
+                  Open Source WEB3 community
+                </h6>
+                <h6>
+                  Collaborative Crowdsourcing
+                </h6>
                 <b-button-group class="mt-3">
-                  <b-button variant="palette14" size="sm" :to="'/createproject'"><b-icon icon="brush" /> Design</b-button>
-                  <b-button variant="palette15" size="sm" :to="'/blog'"><b-icon icon="clipboard" /> Blog</b-button>
+                  <b-button variant="palette14" size="sm" :to="''"><b-icon icon="brush" /><s>Design</s></b-button>
+                  <b-button variant="palette15" size="sm" :to="'/articles'"><b-icon icon="clipboard" /> Blog</b-button>
                 </b-button-group>
 
-                <b-button variant="palette13" size="sm" :to="'/market'" class="mt-3 ml-2">Marketplace</b-button>
+                <b-button variant="palette13" size="sm" :to="'/nfa'" class="mt-3 ml-2">Marketplace</b-button>
+              </div>
               </div>
 
             </b-col>
@@ -61,7 +72,7 @@
 
             </b-col>
             <b-col md="6" sm="6" xs="6" class="mt-3">
-              <b-img class="mb-3" src="/cham.png" fluid center></b-img>
+              <b-img class="logo mb-3" src="/cham.png" height="500" center></b-img>
             </b-col>
 
           </b-row>
@@ -74,22 +85,22 @@
 
 
     <div class="heading">
-
+      
       <b-row align-v="end" class="container">
         <hr />
-        <b-col md="6" sm="6">
+        <b-col lg="6" md="6" sm="6" xs="6">
           <div class="container add content2">
             <div>Art</div>
-
             <div>Design</div>
             <div>Development</div>
 
           </div>
         </b-col>
-        <b-col md="6" sm="6" class="add text-right">
+        <b-col lg="6" md="6" sm="6" xs="6" class="add text-justify">
 
-          <div>
-            Archetypes and patterns.
+          <div class="add2">
+            <b>ƒ</b> Crowdsourcing collaborative design -  <b>ƒ</b> Open source knowledge access -  <b>ƒ</b> Crypto art and currency trading
+            - <b>ƒ</b> Decentralized Application marketplace
           </div>
 
         </b-col>
@@ -187,7 +198,7 @@
     <div class="block12">
       <div class="container text-dark">
 
-        <b-row align-v="center" class="mt-3 mb-3">
+        <b-row align-v="center" class="mt-5 mb-3">
           <b-col md="6" sm="6">
           </b-col>
           <b-col md="6" sm="6">
@@ -244,7 +255,7 @@
 
             <div class="txtdisp text-center">
 
-              <h1>ECO | Token</h1>
+              <h1>ARK | Token</h1>
 
             </div>
 
@@ -256,7 +267,7 @@
 
             <div>Crowdfunding</div>
             <div class="mt-3">
-              ECO Token is a currency sustaining the Outlier ecosystem
+              ARK Token is a currency sustaining the Outlier ecosystem
               by rewarding contributors and funding the development of your project.
             </div>
 
@@ -278,8 +289,8 @@
             </div>
 
             <div class="text-center">
-              <b-button class="mt-3" variant="nature1" size="md" to="/meta">
-                Get some ECO
+              <b-button class="mt-3" variant="nature1" size="md" to="/wallet">
+                Get some ARK
               </b-button>
             </div>
 
@@ -336,7 +347,7 @@
         </b-row>
 
 
-        <b-row>
+        <b-row align-v="center">
           <b-col md="6" sm="12">
 
             <b-img src="/spiral.png" height="220"></b-img>
@@ -372,7 +383,7 @@
           <b-img class="mx-3" src="/metamaskfox.png" height="60"></b-img>
 
           <div class="add2 mt-3"><a href="https://metamask.io/download/">Installing Metamask</a></div>
-          <div>Adding ECO Token</div>
+          <div>Adding ARK Token</div>
 
 
         </b-card>
@@ -410,10 +421,36 @@ export default {
     }
   },
   mounted() {
-
+    this.$store.commit('nft/setMessage', "Welcome to Outlier Art on Mumbai Testnet | dev 40% ");
   },
   computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+    walletAddress() {
+      return this.$store.getters['nft/loadedWallet'];
+    },
+    wallet() {
+      if (this.walletAddress === '') {
+        return 'Connect Wallet'
+      } else {
+        return String(this.walletAddress).substring(0, 4) + "..." + String(this.walletAddress).substring(38);
+      }
+    },
 
+  },
+  methods: {
+    web3Login: function () {
+      // check if walletaddress is set or call connectWallet
+      if (this.walletAddress === '') {
+        this.connectWallet();
+      }
+      const userObj = {
+        address: this.walletAddress
+      };
+      // dispatch login passing walletaddress
+      this.$store.dispatch('auth/web3Login', userObj);
+    },
   }
 };
 </script>
@@ -433,6 +470,10 @@ export default {
 .title {
   font-size: 50pt;
   font-weight: 400;
+}
+
+.logo {
+  /*max-height: 200px;*/
 }
 
 .heading {
@@ -649,7 +690,6 @@ export default {
 .content {
   display: inline-block;
   align-self: flex-end;
-
   padding: 10px;
 
 }
@@ -665,9 +705,19 @@ export default {
 .content3 {
   display: inline-block;
   align-self: flex-end;
-  border: 1px solid #000000;
+  border-left: 3px solid #000000;
   height: 100%;
   padding: 10px;
+
+}
+
+.content4 {
+  display: inline-block;
+  align-self: flex-end;
+  border-bottom: 3px solid #000000;
+  height: 100%;
+  padding: 10px;
+
 }
 
 
@@ -679,7 +729,7 @@ export default {
 
 .overlap {
   position: absolute;
-  top: 0px;
+  top: 30px;
   left: 0px;
   z-index: 0;
 }

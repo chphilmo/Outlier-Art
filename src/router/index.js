@@ -2,13 +2,22 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import VueMeta from 'vue-meta';
 import Home from '../views/Home.vue';
-import Meta from '../views/Meta.vue';
+import Wallet from '../views/Wallet.vue';
 import MintNfa from '../views/MintNfa.vue';
 import ManageNfa from '../views/ManageNfa.vue';
 import Nfa from '../views/Nfa.vue';
 import Contract from '../views/Contract.vue';
 import WhitePaper from '../views/WhitePaper.vue';
-import Creators from '../views/Creators.vue';
+import Community from '../views/Community.vue';
+import Login from '../views/Login.vue';
+import Register from '../views/Register.vue';
+import Profile from '../views/Profile.vue';
+import EditProfile from '../views/EditProfile.vue';
+import Articles from '../views/Articles.vue';
+import Article from '../views/Article.vue';
+import EditArticle from '../views/EditArticle.vue';
+import CreateArticle from '../views/CreateArticle.vue';
+import Ecosystem from '../views/Ecosystem.vue';
 
 Vue.use(Router);
 Vue.use(VueMeta);
@@ -26,9 +35,9 @@ export const router = new Router({
       component: Home
     },
     {
-      path: '/meta',
-      name: 'meta',
-      component: Meta
+      path: '/wallet',
+      name: 'wallet',
+      component: Wallet
     },
     {
       path: '/whitepaper',
@@ -60,9 +69,60 @@ export const router = new Router({
       component: Nfa
     },
     {
-      path: '/creators',
-      name: 'creators',
-      component: Creators
+      path: '/articles',
+      name: 'articles',
+      component: Articles
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: Article,
+      props: true
+    },
+    {
+      path: '/editarticle/:id',
+      name: 'editarticle',
+      component: EditArticle,
+      props: true,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/createarticle',
+      name: 'createarticle',
+      component: CreateArticle,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/editprofile',
+      name: 'editprofile',
+      component: EditProfile,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/community',
+      name: 'community',
+      component: Community
+    },
+    {
+      path: '/ecosystem',
+      name: 'ecosystem',
+      component: Ecosystem
     },
   ]
 });

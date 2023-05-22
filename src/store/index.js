@@ -5,6 +5,7 @@ import { nft } from './nft.module';
 import { matter } from './matter.module';
 import { auth } from './auth.module';
 import { nfa } from './nfa.module';
+import { article } from './article.module';
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
   nft,
   matter,
   auth,
-  nfa
+  nfa,
+  article
   }
 })

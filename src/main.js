@@ -29,15 +29,18 @@ import './custom.scss'
 
 import DateFilter from './filters/date.js'
 
+import setupInterceptors from './services/setupInterceptors'
+
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt)
 
 Vue.config.productionTip = false
+
+setupInterceptors(store);
 
 
 Vue.use(Vuex);
 
 Vue.use(VueMeta);
-
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -50,6 +53,8 @@ Vue.use(VeeValidate)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.filter('date', DateFilter)
 
+
+
 new Vue({
   router,
   store,
@@ -60,6 +65,8 @@ new Vue({
   this.$store.dispatch('auth/fetchCreators')
   this.$store.dispatch('nfa/loadNfa')
   this.$store.dispatch('nfa/loadContract')
+  this.$store.dispatch('article/loadArticle')
+  this.$store.dispatch('article/loadCategory')
   //this.$store.dispatch('nft/MatterSelled')
   }
 }).$mount('#app')

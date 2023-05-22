@@ -1,15 +1,15 @@
 require('dotenv').config();
-const API_URL = process.env.VUE_APP_API_URL;
+const API_URL = process.env.VUE_APP_API_URL_NFA;
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const ecosysToken = require("../../artifacts/contracts/Ecosys.sol/Ecosys.json");
+const ecosysToken = require("../../artifacts/contracts/Archetype.sol/Archetype.json");
 
 const ecosysVendor = require("../../artifacts/contracts/Vendor.sol/Vendor.json");  
 
-const ecosysAddress = "0x8b7da288348D4668B037e07213784692799806b9";
-const vendorAddress = "0x924689dA7b74b0D30C827e6B3D3A0469879f1B7c";
+const ecosysAddress = "0x94b5d68d7D67045AB2e31182823EEDf876172dBc";
+const vendorAddress = "0xf83Be9C7c4dd7669D3e460Cb65b072453791EC61";
 
 const ecosysContract = new web3.eth.Contract(ecosysToken.abi, ecosysAddress);
 
@@ -67,7 +67,8 @@ export const nft = {
       await vendorContract.methods.buyTokens()
       .send({
         'from': wAddress,
-        'value': web3.utils.toWei(amount.toString(), "ether")
+        'value': web3.utils.toWei(amount.toString(), "ether"),
+        gas: 1000000,
       })
       .on("confirmation", () => {
         commit('setMessage', "Completed")
@@ -87,7 +88,8 @@ export const nft = {
 
       await vendorContract.methods.sellTokens(web3.utils.toWei(amount.toString(), "ether"))
       .send({
-        'from': wAddress
+        'from': wAddress,
+        gas: 1000000,
       })
       .on("confirmation", () => {
         commit('setMessage', "Completed")
@@ -107,7 +109,8 @@ export const nft = {
 
       await vendorContract.methods.withdraw()
       .send({
-        'from': wAddress
+        'from': wAddress,
+        gas: 1000000,
       })
       .on("confirmation", () => {
         commit('setMessage', "Completed")

@@ -134,6 +134,15 @@ class AuthService {
 
   }
 
+  deleteUser() {
+    return api
+      .delete("/auth/delete")
+      .then(response => {
+        TokenService.removeUser();
+        return response.data;
+      });
+  }
+
 }
 
 export default new AuthService();

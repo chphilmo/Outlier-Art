@@ -5,45 +5,49 @@
         <p>edit Profile</p>
       </b-jumbotron>
     </header>
-    
+
     <form name="form" @submit.prevent="createNode">
-      <div class="form-group">
-        <label for="title">Username</label>
-        <input
-          v-model="currentUser.username"
-          v-validate="'required'"
-          type="text"
-          class="form-control"
-          name="username"
-        />
+      <div class="form-group text-dark">
+        <div class="text-dark">Username</div>
+        <input v-model="currentUser.username" v-validate="'required'" type="text" class="form-control"
+          name="username" />
       </div>
 
       <div class="form-group">
-        <label for="content">Email</label>
-        <input
-          v-model="currentUser.email"
-          v-validate="'required'"
-          type="text"
-          class="form-control"
-          name="email"
-        />
+        <div class="text-dark">Email</div>
+        <input v-model="currentUser.email" v-validate="'required'" type="text" class="form-control" name="email" />
+      </div>
+
+      <div class="form-group">
+          <div class="text-dark">Bio</div>
+          <b-form-textarea id="description" v-model="currentUser.bio" placeholder="..." rows="3"
+            max-rows="6"></b-form-textarea>
+        </div>
+
+      <div class="form-group">
+        <div class="text-dark">Website</div>
+        <input v-model="currentUser.website" v-validate="'required'" type="text" class="form-control" name="email" />
+      </div>
+
+      <div class="form-group">
+        <div class="text-dark">Twitter</div>
+        <input v-model="currentUser.twitter" v-validate="'required'" type="text" class="form-control" name="email" />
       </div>
 
       <div class="form-group mt-2">
+        <div class="text-dark">Profile picture</div>
         <b-button variant="primary" @click="onPickFile">Upload profile picture </b-button>
-        <input 
-          type="file" 
-          style="display: none" 
-          ref="fileInput" 
-          accept="image/*"
-          @change="onFilePicked">
+        <input type="file" style="display: none" ref="fileInput" accept="image/*" @change="onFilePicked">
 
         <img :src="imageUrl" height="200">
 
-        <img v-if="currentUser.imageUrl" :src="currentUser.imageUrl" height="200">
+        <div class="text-dark">
+          <div>Image Url</div>
+          <div class="add">{{ currentUser.imageUrl }}</div>
+        </div>
       </div>
 
-     
+
       <div class="form-group mt-2">
         <button class="btn btn-primary btn-block" :disabled="loading">
           <span v-show="loading" class="spinner-border spinner-border-sm"></span>
@@ -68,7 +72,7 @@ export default {
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
-    }
+    },
   },
   mounted() {
     if (!this.currentUser) {
@@ -76,31 +80,28 @@ export default {
     }
   },
   methods: {
-    createNode: function() {
+    createNode: function () {
       this.loading = true;
-      this.$validator.validateAll().then(isValid => {
-        if (!isValid) {
-          this.loading = false;
-          return;
-        }
 
-        if (this.currentUser.username) {
-          const userData = {
-            id: this.currentUser.id,
-            username: this.currentUser.username,
-            email: this.currentUser.email, 
-            imageUrl: this.currentUser.imageUrl
-          }
-          this.$store.dispatch('auth/editProfile', userData)
-          this.$router.push('/profile')
-        }
-      });
+      const userData = {
+        id: this.currentUser.id,
+        username: this.currentUser.username,
+        email: this.currentUser.email,
+        imageUrl: this.currentUser.imageUrl,
+        bio: this.currentUser.bio,
+        website: this.currentUser.website,
+        twitter: this.currentUser.twitter,
+      }
+      this.$store.dispatch('auth/editProfile', userData)
+      this.$router.push('/profile')
+
+
 
     },
     onPickFile() {
       this.$refs.fileInput.click()
     },
-    onFilePicked (event) {
+    onFilePicked(event) {
       const files = event.target.files
       let filename = files[0].name
       if (filename.lastIndexOf('.') <= 0) {
@@ -118,3 +119,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.add {
+  font-size: 10pt;
+}
+</style>

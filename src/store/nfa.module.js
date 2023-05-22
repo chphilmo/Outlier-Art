@@ -6,13 +6,13 @@ const API_URL = process.env.VUE_APP_API_URL_NFA;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const contractNft = require("../../artifacts/contracts/PhimoNFA.sol/PhimoNFA.json");
+const contractNft = require("../../artifacts/contracts/Outlier.sol/Outlier.json");
 
 const contractMarketPlace = require("../../artifacts/contracts/MaketPlace.sol/Marketplace.json");
 
 
-const contractAddress = "0x4c0c0D351Ded840A660501f23F73b096cDeA89dE";
-const marketPlaceAddress = "0xC43b30E351676CD9c8bd00C6670008C8e88F75EE";
+const contractAddress = "0x8531CCEf72A25a3E83a8De53ea592795c18eeC99";
+const marketPlaceAddress = "0x03837958540a345274c063bf3D52a7084bf6A9E3";
 const nftContract = new web3.eth.Contract(contractNft.abi, contractAddress);
 
 const marketPlaceContract = new web3.eth.Contract(contractMarketPlace.abi, marketPlaceAddress);
@@ -62,7 +62,7 @@ export const nfa = {
 
       const animation = atob(nfaJson.animation_url.split(',')[1]);
        
-
+       
       data.push( {
         id: i,
         name: nfaJson.name,
@@ -70,7 +70,7 @@ export const nfa = {
         image: nfaJson.image,
         animation_url: animation,
         external_url: nfaJson.external_url,
-        onSale: nfaJson.onSale,
+        onSale: nfaJson.on_sale,
         owner: nfaJson.owner,
         value: nfaJson.value,
         attributes: nfaJson.attributes,
@@ -131,6 +131,7 @@ export const nfa = {
           .request({
             method: 'eth_sendTransaction',
             params: [transactionParameters],
+            gas: 1000000,
           });
         console.log("The hash of your transaction is: ", txHash, "\nCheck Alchemy's Mempool to view the status of your transaction!");
         commit('setMessage', txHash);
@@ -410,7 +411,7 @@ export const nfa = {
       await nftContract.methods.setTokenValue(marketPlaceAddress, tokenId, web3.utils.toWei(val.toString()))
         .send({
           'from': window.ethereum.selectedAddress,
-          'gas': 200000
+          'gas': 10000000
         })
         .on("confirmation", () => {
           commit('setMessage', "Completed")
@@ -457,7 +458,7 @@ export const nfa = {
       const image = payload.image;
       const externalLink = payload.externalLink;
 
-      console.log(payload)
+    
       if (!window.ethereum) {
         commit('setMessage', "You must install Metamask 🦊, a virtual Ethereum wallet, in your browser.");
         return;
@@ -466,7 +467,7 @@ export const nfa = {
       await nftContract.methods.setContract(name, description.replaceAll(/\n/g, '\\n'), image, externalLink)
         .send({
           'from': window.ethereum.selectedAddress,
-          'gas': 200000
+          'gas': 3000000
         })
         .on("confirmation", () => {
           commit('setMessage', "Completed")
@@ -486,12 +487,12 @@ export const nfa = {
         commit('setMessage', "You must install Metamask 🦊, a virtual Ethereum wallet, in your browser.");
         return;
       }
-
+  
       await marketPlaceContract.methods.transferFrom(contractAddress, nftId)
       .send({
         'from': window.ethereum.selectedAddress,
         'value': value.toString(),
-        'gas': 500000
+        'gas': 1000000
       })
       .on("confirmation", () => {
         commit('setMessage', "Completed")
