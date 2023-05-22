@@ -110,9 +110,9 @@
                 <b-icon icon="bricks"></b-icon>
                 Wallet
               </b-nav-item>
-              <b-nav-item to="/design" @click="hide">
+              <b-nav-item to="" @click="hide">
                 <b-icon icon="layers"></b-icon>
-                Design
+                <s>Design</s>
               </b-nav-item>
 
               <b-nav-item to="/articles" @click="hide">
