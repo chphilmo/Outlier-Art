@@ -1,4 +1,4 @@
-# ecosys-iot
+# Outlier Art
 
 ## Project setup
 ```
