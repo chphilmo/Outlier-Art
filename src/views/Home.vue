@@ -11,7 +11,7 @@
 
               <div class="block1 content">
 
-                <h1 class="title">Outlier art</h1>
+                <h1 class="title">Outlier Art</h1>
                 <!--<b-img class="mb-3" src="/outlier.png" min-height="300px" fluid></b-img>-->
 
                 <!--<b-img class="mb-3" src="/outlier.png" min-height="300px" fluid></b-img>-->
@@ -24,38 +24,35 @@
 
                 </b-button-group>
                 <div v-else>
-                <b-button-group class="mt-3">
-                  <b-button variant="palette31" size="sm" :to="''"><b-icon icon="plus" />Projet</b-button>
-                  <b-button variant="palette32" size="sm" :to="'/mint'"><b-icon icon="plus" />NFA</b-button>
-                  
-                </b-button-group>
-                <b-button class="mt-3 ml-2" variant="palette34" size="sm" :to="'/createarticle'"><b-icon icon="plus" />Article</b-button>
+
+                  <b-button class="mt-3 ml-2" variant="palette34" size="sm" :to="'/createarticle'"><b-icon
+                      icon="plus" />Article</b-button>
                 </div>
-      
+
 
               </div>
 
             </b-col>
             <b-col md="6" sm="6" xs="6" class="mt-3">
               <div class="container">
-              <div class="content3 text-dark">
-                <h4>Welcome to Outlier art</h4>
-                <h6>
-                  Media Interactive Design
-                </h6>
-                <h6>
-                  Open Source WEB3 community
-                </h6>
-                <h6>
-                  Collaborative Crowdsourcing
-                </h6>
-                <b-button-group class="mt-3">
-                  <b-button variant="palette14" size="sm" :to="''"><b-icon icon="brush" /><s>Design</s></b-button>
-                  <b-button variant="palette15" size="sm" :to="'/articles'"><b-icon icon="clipboard" /> Blog</b-button>
-                </b-button-group>
+                <div class="content3 text-dark">
+                  <h4>Welcome to Outlier art</h4>
+                  <h6>
+                    Media Interactive Design
+                  </h6>
+                  <h6>
+                    Trust and Help Community
+                  </h6>
+                  <h6>
+                    Open Source WEB3 community
+                  </h6>
+                  <b-button-group class="mt-3">
+                    <b-button variant="palette14" size="sm" :to="''"><b-icon icon="brush" /><s>Design</s></b-button>
+                    <b-button variant="palette15" size="sm" :to="'/articles'"><b-icon icon="clipboard" /> Blog</b-button>
+                  </b-button-group>
 
-                <b-button variant="palette13" size="sm" :to="'/nfa'" class="mt-3 ml-2">Marketplace</b-button>
-              </div>
+                  <b-button variant="palette13" size="sm" :to="'/community'" class="mt-3 ml-2">Community</b-button>
+                </div>
               </div>
 
             </b-col>
@@ -86,7 +83,7 @@
 
 
     <div class="heading">
-      
+
       <b-row align-v="end" class="container">
         <hr />
         <b-col lg="6" md="6" sm="6" xs="6">
@@ -100,8 +97,8 @@
         <b-col lg="6" md="6" sm="6" xs="6" class="add text-justify">
 
           <div class="add2">
-            <b>ƒ</b> Crowdsourcing collaborative design -  <b>ƒ</b> Open source knowledge access -  <b>ƒ</b> Crypto art and currency trading
-            - <b>ƒ</b> Decentralized Application marketplace
+            <b>ƒ</b> Open source knowledge access - <b>ƒ</b> Crypto art
+
           </div>
 
         </b-col>
@@ -126,15 +123,16 @@
             <div class="block1">
 
 
-              <h1>outlier art</h1>
+              <h1>Outlier Art</h1>
 
 
               <div class="mt-3">
-                We handle the development of your web project
-                with a team of artists and developers -
-                letting your earn passive income from our crowdsourcing
-                mechanism - making use of the Blockchain to ensuring transparency
-                in all steps of the process.
+
+
+                Outlier Art is a blog about Arts, generative art, creative coding and crypto art.
+                It merges two Twitter groups into one, the <b>Interactive Design</b> (Generative Art, Creative Coding) and
+                <b>Trust and Help Community</b> (All mediums Art),
+                through a platform that allows to share knowledge and resources.
               </div>
 
 
@@ -144,7 +142,7 @@
 
           <b-col md="6" sm="6">
 
-            <b-img class="mb-3" src="/polar-bear.png" fluid></b-img>
+            <b-img class="mb-3" src="/matic.png" fluid></b-img>
 
           </b-col>
 
@@ -167,7 +165,7 @@
 
         <div class="text-center mb-3">
 
-          <h1>Social ecology</h1>
+          <h1>Interactive Design</h1>
 
         </div>
         <b-row align-v="center" class="mt-3">
@@ -178,12 +176,24 @@
           </b-col>
           <b-col md="6" sm="6">
 
-            <div class="mt-3">We belive in social ecology and apply its concepts to emerging technologies such as the
-              Blockchain and Web3.</div>
-            <div class="mt-3">We build web applications hosted on the Decentralized web to prevent censorship and
-              downtime around the world.</div>
-            <div class="mt-3">We develop systems to enhance knowledge access through crowdsourcing, collaborative
-              design and open source cookbooks.
+            <div class="mt-3">
+
+              The idea of an Interactive Design group is born from the will of making <b>generative art</b>, <b>creative
+                coding</b>
+              and <b>web development</b>
+              more accessible while including everyone in the creative process sharing resources to bettering growth and
+              tackle the market.
+            </div>
+
+            <div class="mt-3">
+              From people willing to dig into the domain to others just curious, we create a dynamic that
+              enhance productivity and fun in a creative environment through Twitter groups and the following blog on the
+              web.
+            </div>
+
+            <div class="mt-3">
+              Contact <a href="https://twitter.com/philmo_mu"><b-icon icon="twitter" />
+                @philmo_mu</a> 
             </div>
 
 
@@ -196,205 +206,58 @@
     </div>
 
 
-    <div class="block12">
+
+
+    <div class="block12 mt-5">
       <div class="container text-dark">
 
-        <b-row align-v="center" class="mt-5 mb-3">
-          <b-col md="6" sm="6">
-          </b-col>
-          <b-col md="6" sm="6">
-            <h1>Product</h1>
-          </b-col>
+        <div class="text-center mb-3">
 
-        </b-row>
-        <b-row align-v="center">
+          <h1>Trust and Help Community</h1>
+
+        </div>
+        <b-row align-v="center" class="mt-3">
 
           <b-col md="6" sm="6">
-            <h3>Web applications</h3>
-            <div class="mb-3">Building <b>tokenized</b> web applications on the <b>Blockchain</b>
-              to redefine ownership, governance and continuous <b>maintenance</b> over time.
+
+            <div class="mt-3">
+
+              Trust and Help Community is a group of artists that share their knowledge and resources to help each other
+              in a fun an creative environment.
             </div>
 
-
-            <div>
-              By leveraging the power of <b>decentralization</b> we building
-              scalable applications using Blockchain's
-              <ul class="mt-3">
-                <li>
-                  <b> immutability</b> to redefine ownership
-                </li>
-                <li>
-                  <b> interoperability</b> to ensure censorship resistance
-                </li>
-                <li>
-                  <b> governance</b> to guarantee maintenance over time
-                </li>
-              </ul>
-
+            <div class="mt-3">
+              Contact <a href="https://twitter.com/EdmundBoissier"><b-icon icon="twitter" />
+                @EdmundBoissier</a> | <a href="https://twitter.com/gravotopia"><b-icon icon="twitter" />
+                @gravotopia</a>
             </div>
 
-            <div>
-
-              Making use of smart contracts on the Ethereum Blockchain, we develop
-              new concepts of interaction between <b>designers</b>, <b>developers</b> and <b>consumers</b>
-              that guarantee the sustainability of the application over time.
-
-            </div>
           </b-col>
 
           <b-col md="6" sm="6">
 
-
-            <b-img src="/blockchip.png" fluid center></b-img>
+            <b-img src="/galaxy.png" fluid></b-img>
 
           </b-col>
 
         </b-row>
-        <b-row align-v="center" class="mt-5">
-
-          <b-col md="6" sm="6">
-
-            <div class="txtdisp text-center">
-
-              <h1>ARK | Token</h1>
-
-            </div>
-
-          </b-col>
-
-          <b-col md="6" sm="6" class="mt-3">
-
-            <h3>Crowdsourcing</h3>
-
-            <div>Crowdfunding</div>
-            <div class="mt-3">
-              ARK Token is a currency sustaining the Outlier ecosystem
-              by rewarding contributors and funding the development of your project.
-            </div>
-
-            <div class="mt-3">
-              It allows users to <b>crowdsource</b> our
-              <b>collaborative design</b> process through a consensus mechanism
-              involving no third party.
-
-            </div>
-
-            <div class="mt-3">
-              Focusing on <b>utility</b>, the token can be used to:
-              <ul class="mt-3">
-                <li>vote on the direction of the project</li>
-                <li>fund the development of new features</li>
-                <li>ensure updates and upgrades</li>
-                <li>reward contributors</li>
-              </ul>
-            </div>
-
-            <div class="text-center">
-              <b-button class="mt-3" variant="nature1" size="md" to="/wallet">
-                Get some ARK
-              </b-button>
-            </div>
-
-
-          </b-col>
-
-        </b-row>
-
-
-
 
       </div>
     </div>
-
-
-    <hr />
-
-
-    <div class="block2">
-
-      <div class="container text-dark">
-        <b-row align-v="center" class="mt-3 mb-3">
-          <b-col md="6" sm="6">
-            <h1>Art</h1>
-          </b-col>
-          <b-col md="6" sm="6">
-
-          </b-col>
-
-        </b-row>
-
-        <b-row align-v="center" class="mt-5">
-
-          <b-col md="6" sm="6">
-            <h3>Collaborative design</h3>
-            <div class="mb-3">Between Visual identity, branding and digital product design,
-              we create innovative solutions to enhance the user experience while
-              allowing artists to express their creativity.
-            </div>
-            <div class="mb-3">Working with the reliability of the Blockchain, all
-              decisions are made under a <b>consensus mechanism</b> that regulates
-              the direction of the project and ensure consistency while innovating.
-            </div>
-
-          </b-col>
-
-          <b-col md="6" sm="6">
-
-
-            <b-img src="/interact.png" height="220" center></b-img>
-
-          </b-col>
-
-        </b-row>
-
-
-        <b-row align-v="center">
-          <b-col md="6" sm="12">
-
-            <b-img src="/spiral.png" height="220"></b-img>
-          </b-col>
-          <b-col md="6" sm="12" class="mt-5">
-            <h3>Interaction Design</h3>
-            <div class="mt-3">Founded on the principles of <b>social ecology</b>,
-              our team is composed of multidisciplinary artists and developers
-              working together to ensure the accessibility and user experience of our product.
-
-            </div>
-
-            <div class="mt-3">From engravers, photographs, generative artist to web developer
-              we empowering visual expression through interactive applications.
-            </div>
-
-
-
-          </b-col>
-        </b-row>
-
-      </div>
-      <hr />
-    </div>
-
-
 
     <div class="block3">
       <div class="container text-center text-dark">
         <b-card bg-variant="light">
 
-          <b-img class="mx-3" src="/ethereumlogo.png" height="60"></b-img>
           <b-img class="mx-3" src="/metamaskfox.png" height="60"></b-img>
 
-          <div class="add2 mt-3"><a href="https://metamask.io/download/">Installing Metamask</a></div>
-          <div>Adding ARK Token</div>
+          <div class="add2 mt-3">Register/Login with Metamask (WEB3)</div>
+          <div class="add2">Register/Login with Email and Password</div>
 
 
         </b-card>
       </div>
     </div>
-
-
-
-
-
 
   </div>
 </template>
@@ -410,19 +273,19 @@ export default {
     };
   },
   metaInfo() {
-    return { 
+    return {
       title: "Outlier Art",
       meta: [
-        { vmid: 'description', name: 'description', content:  'Outlier Art' },
+        { vmid: 'description', name: 'description', content: 'Outlier Art' },
         { vmid: 'og:title', property: 'og:title', content: "Outlier Art" },
         { vmid: 'og:site_name', property: 'og:site_name', content: 'Outlier Art' },
-        { vmid: 'og:type', property: 'og:type', content: 'website' },    
-        { name: 'robots', content: 'index,follow' } 
+        { vmid: 'og:type', property: 'og:type', content: 'website' },
+        { name: 'robots', content: 'index,follow' }
       ]
     }
   },
   mounted() {
-    this.$store.commit('nft/setMessage', "Welcome to Outlier Art on Mumbai Testnet | dev 40% ");
+    this.$store.commit('nft/setMessage', "Welcome to Outlier Art | dev 60% ");
   },
   computed: {
     currentUser() {

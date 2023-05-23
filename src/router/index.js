@@ -6,12 +6,14 @@ import AuthService from "../services/auth.service";
 import EventBus from "../common/EventBus";
 
 import Home from '../views/Home.vue';
+/*
 import Wallet from '../views/Wallet.vue';
 import MintNfa from '../views/MintNfa.vue';
 import ManageNfa from '../views/ManageNfa.vue';
 import Nfa from '../views/Nfa.vue';
 import Contract from '../views/Contract.vue';
 import WhitePaper from '../views/WhitePaper.vue';
+*/
 import Community from '../views/Community.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
@@ -38,6 +40,7 @@ export const router = new Router({
       path: '/home',
       component: Home
     },
+    /*
     {
       path: '/wallet',
       name: 'wallet',
@@ -71,7 +74,7 @@ export const router = new Router({
       path: '/nfa',
       name: 'nfa',
       component: Nfa
-    },
+    },*/
     {
       path: '/articles',
       name: 'articles',

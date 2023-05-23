@@ -89,7 +89,16 @@ export default {
     deleteUser: function () {
       this.$store.dispatch('auth/deleteUser');
       this.$router.push('/');
-    }
+    },
+    sendVerifyMail: function () {
+      this.loading = true;
+
+
+      this.$store.dispatch('auth/sendVerify')
+      this.loading = false;
+
+
+    },
   }
 };
 </script>

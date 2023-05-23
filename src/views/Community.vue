@@ -8,13 +8,14 @@
             </b-jumbotron>
         </header>
 
-        <b-row>
-            <b-col cols="6" v-for="user in getUsers" :key="user.id">
-                <b-card bg-variant="light" class="mt-2" text-variant="dark">
+        <masonry :cols="{default: 4, 1000: 3, 700: 2, 400: 1}"
+      :gutter="{default: '10px', 700: '5px'}" >
+           
+                <b-card v-for="user in getUsers" :key="user.id" bg-variant="light" class="mt-2" text-variant="dark">
                     <b-avatar :src="user.imageUrl" :href="'/creators/' + user.id"></b-avatar>
                     <b-card-text>
                         <div><b>{{ user.username }}</b> <b-icon v-if="user.verified" icon="check-circle" /> </div>
-                        <div>{{ String(user.address).substring(0, 6) + "..." + String(user.address).substring(40) }} <b-icon
+                        <div v-if="user.address">{{ String(user.address).substring(0, 6) + "..." + String(user.address).substring(40) }} <b-icon
                                 v-if="user.whitelisted" icon="check-circle" /> </div>
                         <div>{{ user.bio }}</div>
                         <div><b-icon icon="globe" /> {{ user.website }}</div>
@@ -25,15 +26,15 @@
                             @whitelistAddress="whitelistAddress" />
                     </b-card-text>
                 </b-card>
-            </b-col>
-        </b-row>
+          
+        </masonry>
 
     </div>
 </template>
   
 <script>
 
-import DeleteModal from '../components/DeleteModal.vue';
+import DeleteModal from '../components/DeleteModal3.vue';
 import Whitelist from '../components/Whitelist.vue';
 
 export default {

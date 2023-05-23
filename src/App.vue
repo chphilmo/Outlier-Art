@@ -10,11 +10,12 @@
 
       <b-navbar-toggle v-b-toggle.sidebar-1 target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-text-collapse" is-nav>
+        <!--
         <b-navbar-nav>
           <b-nav-item>
             <router-link to="/wallet" class="nav-link">Wallet</router-link>
           </b-nav-item>
-        </b-navbar-nav>
+        </b-navbar-nav> -->
         <b-navbar-nav>
           <b-nav-item>
             <router-link to="" class="nav-link"><s>Design</s></router-link>
@@ -22,9 +23,10 @@
           <b-nav-item>
             <router-link to="/articles" class="nav-link">Blog</router-link>
           </b-nav-item>
+          <!--
           <b-nav-item>
             <router-link to="/nfa" class="nav-link">NFA</router-link>
-          </b-nav-item>
+          </b-nav-item> -->
         </b-navbar-nav>
       </b-collapse>
 
@@ -50,6 +52,7 @@
             Profile
           </router-link>
         </b-dropdown-item>
+        <!--
         <b-dropdown-item>
           <router-link to="/contract" class="nav-link">
             <b-icon icon="book" class="h5" />
@@ -61,7 +64,7 @@
             <b-icon icon="columns" class="h5" />
             Mint
           </router-link>
-        </b-dropdown-item>
+        </b-dropdown-item> -->
         <b-dropdown-item @click.prevent="logOut">
           <b-icon icon="arrow-right" class="h5" />
           log-Out
@@ -118,10 +121,11 @@
           </div>
           <nav class="mb-3">
             <b-nav vertical>
+              <!--
               <b-nav-item to="/wallet" @click="hide">
                 <b-icon icon="bricks"></b-icon>
                 Wallet
-              </b-nav-item>
+              </b-nav-item> -->
               <b-nav-item to="" @click="hide">
                 <b-icon icon="layers"></b-icon>
                 <s>Design</s>
@@ -131,11 +135,11 @@
                 <b-icon icon="card-text"></b-icon>
                 Blog
               </b-nav-item>
-
+              <!--
               <b-nav-item to="/nfa" @click="hide">
                 <b-icon icon="shop"></b-icon>
                 NFA
-              </b-nav-item>
+              </b-nav-item> -->
 
               <hr />
               <b-nav-item to="/profile" @click="hide" v-if="currentUser">
@@ -164,22 +168,12 @@
 
               <h5 class="mt-3">Social Media</h5>
 
-              <b-nav-item href="https://twitter.com/philmo_mu?s=20" @click="hide">
+              <b-nav-item href="https://twitter.com/outlier_art" @click="hide">
                 <b-icon icon="twitter" />
                 Twitter
               </b-nav-item>
-              <b-nav-item href="https://www.instagram.com/philmo_mu/" @click="hide">
-                <b-icon icon="instagram" />
-                Instagram
-              </b-nav-item>
-              <b-nav-item href="https://medium.com/@pmosi76" @click="hide">
-                <b-icon icon="medium" />
-                Medium
-              </b-nav-item>
-              <b-nav-item href="https://ch.linkedin.com/in/phil-mo-1630bb13a" @click="hide">
-                <b-icon icon="linkedin" />
-                Linkedin
-              </b-nav-item>
+
+              
 
             </b-nav>
           </nav>
@@ -220,8 +214,8 @@
                 <div class="txtfooter">
                   <div>Help</div>
                   <div><router-link to="/community">Community</router-link></div>
-                  <div>Project R&D</div>
-                  <div>Services</div>
+                  <div>Contact</div>
+               
                 </div>
               </b-col>
 
@@ -229,9 +223,8 @@
               <b-col lg="4" md="4" sm="4" xs="12">
 
                 <div class="txtfooter">
-                  <div>View on Chain</div>
+                  <div>Abstract</div>
                   <div><router-link to="/ecosystem">Ecosystem</router-link></div>
-                  <div><router-link to="/whitepaper">White paper</router-link></div>
                   <div>Terms & condition</div>
                 </div>
               </b-col>
