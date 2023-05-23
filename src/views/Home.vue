@@ -478,7 +478,7 @@ export default {
 
 .logo {
   /*max-height: 200px;*/
-  top: 30px;
+  margin-top: 40px;
 }
 
 .heading {
