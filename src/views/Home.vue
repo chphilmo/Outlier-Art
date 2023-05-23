@@ -352,11 +352,6 @@ export default {
 
 }
 
-.layer {
-  background: linear-gradient(to bottom, #e6c7b4, #e6c7b4);
-  padding: 30px;
-}
-
 
 .block1 {
   padding-top: 10px;
@@ -367,23 +362,6 @@ export default {
   text-align: justify;
 }
 
-.block2 {
-  background-color: #f8f9fa;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: justify;
-}
-
-.block22 {
-  background-color: #f8f9fa;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: justify;
-}
 
 .block3 {
   background-color: #f8f9fa;
@@ -391,88 +369,27 @@ export default {
   display: block;
 }
 
-.block4 {
-  background: linear-gradient(to bottom, #f2e9ba, #f8f9fa);
-  padding-top: 60px;
-  padding-bottom: 60px;
-  display: block;
-}
 
 .blockintro {
   background-color: #f8f9fa;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.block5 {
-  position: relative;
-  background-color: #69F0AE;
-
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 
 .block65 {
   background: linear-gradient(to bottom, #e6c7b4, #3c5ba0);
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: justify;
-
-
-}
-
-.block7 {
-  background-color: #f8f9fa;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.block8 {
-  position: relative;
-  bottom: 0;
-  display: flex;
-  width: 100%;
-}
-
-.block9 {
-  position: relative;
-
-  background-color: #f8f9fa;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.block10 {
-  position: relative;
-  background-color: #b6edd3;
-  padding: 10px;
-
-}
-
-.block11 {
-  position: relative;
-  background-color: #69F0AE;
-  padding: 10px;
-
-}
-
-.block111 {
-  position: relative;
-  background-color: #00E676;
-  padding: 10px;
-
-}
-
-.block112 {
-  position: relative;
-  background-color: #b6edd3;
-  padding: 10px;
-
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .block12 {
@@ -485,37 +402,7 @@ export default {
 
 }
 
-.block13 {
-  position: relative;
-  background-color: #64FFDA;
-  padding-top: 40px;
-  padding-bottom: 40px;
 
-}
-
-.block14 {
-  position: relative;
-  background-color: #64FFDA;
-  height: 35px;
-
-}
-
-
-.box1 {
-  padding: 10px;
-  position: relative;
-  background-color: #64FFDA;
-  border-radius: 10px;
-
-}
-
-.box2 {
-  padding: 10px;
-  position: relative;
-  background-color: #f2e9ba;
-  border-radius: 10px;
-
-}
 
 .home {
   position: relative;
@@ -527,15 +414,6 @@ export default {
 
 }
 
-.home1 {
-  position: relative;
-  top: 0;
-  height: 50vh;
-  display: flex;
-  padding-bottom: 20px;
-
-
-}
 
 .home2 {
   position: relative;
@@ -549,11 +427,6 @@ export default {
 
 }
 
-.home3 {
-  position: relative;
-
-
-}
 
 .content {
   display: inline-block;
@@ -579,16 +452,6 @@ export default {
 
 }
 
-.content4 {
-  display: inline-block;
-  align-self: flex-end;
-  border-bottom: 3px solid #000000;
-  height: 100%;
-  padding: 10px;
-
-}
-
-
 .imgBckg {
   display: inline-block;
   align-self: flex-end;
@@ -607,24 +470,6 @@ export default {
   align-self: flex-end;
 }
 
-.txtdisp {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 38px;
-}
-
-.vcenter {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.ln {
-  border: 1px solid #7c7c7c;
-}
 
 .main {
   overflow: hidden;
