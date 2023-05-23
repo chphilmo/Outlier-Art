@@ -17,7 +17,7 @@
                     </b-col>
                     <b-col md="6" sm="6">
 
-                        <div>White Paper: Collaborative Crowdsourcing Design System with Ethereum Blockchain and ECO Token
+                        <div>White Paper: Collaborative Crowdsourcing Design System with Ethereum Blockchain and ARK Token
                         </div>
 
                     </b-col>
@@ -30,7 +30,7 @@
                         <h3>Abstract</h3>
                         <div class="mb-3">
                             This white paper presents a collaborative crowdsourcing design system built on the Ethereum
-                            blockchain. The system leverages the use of ECO tokens as a native currency to facilitate
+                            blockchain. The system leverages the use of ARK tokens as a native currency to facilitate
                             transactions and incentivize participation. By utilizing blockchain technology, the system aims
                             to address challenges in web development, such as deprecation, lack of security, and limited
                             warranty periods. Through the creation of Non-Fungible Applications (NFA) and the implementation
@@ -64,7 +64,7 @@
                             leveraging blockchain technology and smart contracts. The system aims to address the issues of
                             website deprecation, lack of ongoing updates, and centralized governance by introducing
                             decentralized collaboration and incentivized participation. By utilizing the Ethereum blockchain
-                            and introducing the ECO token, the system provides transparency, immutability, and
+                            and introducing the ARK token, the system provides transparency, immutability, and
                             interoperability.
                         </div>
 
@@ -77,12 +77,12 @@
                 <b-row align-v="center" class="mt-5">
 
                     <b-col md="6" sm="6">
-                        <h3>Overview of ECO Token</h3>
+                        <h3>Overview of ARK Token</h3>
                         <div class="mb-3">
-                            The ECO token is the native currency of the Collaborative Crowdsourcing Design System. It is an
+                            The ARK token is the native currency of the Collaborative Crowdsourcing Design System. It is an
                             ERC-20 standard token built on the Ethereum blockchain. The token acts as a medium of exchange
                             within the system, allowing users to participate, invest, and transact securely. The value of
-                            the ECO token is determined by a dynamic pricing mechanism based on the amount of money invested
+                            the ARK token is determined by a dynamic pricing mechanism based on the amount of money invested
                             in the system.
                         </div>
 
@@ -136,9 +136,9 @@
                             NFA Contract: Manages website security, upgrades, and maintenance. It allows website owners to
                             add functionalities, design elements, and content by interacting with the contract and paying
                             the required fees.
-                            Token Contract: Handles the creation, distribution, and transfer of ECO tokens. It ensures
+                            Token Contract: Handles the creation, distribution, and transfer of ARK tokens. It ensures
                             transparency, security, and accurate tracking of token balances.
-                            Escrow Contract: Facilitates the buying and selling of ECO tokens within the system. It ensures
+                            Escrow Contract: Facilitates the buying and selling of ARK tokens within the system. It ensures
                             secure transactions between buyers and sellers by holding funds in escrow until the agreed-upon
                             conditions are met.
                             Access Control Contract: Manages user permissions and controls access to various system features
@@ -215,7 +215,7 @@
 
                             The Collaborative Crowdsourcing Design System incorporates a marketplace where users can access
                             a wide range of creative elements, including websites, photos, AI programs, NFTs, and more.
-                            These elements can be purchased using the ECO token, creating a self-sustaining ecosystem where
+                            These elements can be purchased using the ARK token, creating a self-sustaining ecosystem where
                             participants can monetize their creations and contribute to the growth of the marketplace. The
                             marketplace provides a platform for artists, developers, designers, and content creators to
                             showcase and sell their work, further fostering collaboration and innovation
@@ -234,7 +234,7 @@
                         <div class="mb-3">
                             One of the key benefits of the Collaborative Crowdsourcing Design System is the opportunity for
                             passive income generation. Participants who invest in the system and contribute to its
-                            development can earn profits through the appreciation of the ECO token value and the
+                            development can earn profits through the appreciation of the ARK token value and the
                             redistribution of funds. As the system grows and generates revenue, profits are distributed
                             among all individuals who have contributed to the system based on their level of investment and
                             participation. This incentivizes active engagement and provides a sustainable income stream for
@@ -264,7 +264,7 @@
 
                             The Collaborative Crowdsourcing Design System represents a paradigm shift in web development,
                             leveraging the power of blockchain technology, crowdsourcing, and crowdfunding to create a
-                            collaborative and transparent ecosystem. By tokenizing websites as NFAs and utilizing the ECO
+                            collaborative and transparent ecosystem. By tokenizing websites as NFAs and utilizing the ARK
                             token as a medium of exchange, the system enables ongoing updates, monetization opportunities,
                             and passive income generation for contributors. With a focus on governance, transparency, and
                             value creation, the system aims to revolutionize the way websites are developed, maintained, and

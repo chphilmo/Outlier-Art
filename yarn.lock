@@ -1182,6 +1182,11 @@
     "cssnano-preset-default" "^4.0.0"
     "postcss" "^7.0.0"
 
+"@metamask/detect-provider@^2.0.0":
+  "integrity" "sha512-sFpN+TX13E9fdBDh9lvQeZdJn4qYoRb/6QF2oZZK/Pn559IhCFacPMU1rMuqyXoFQF3JSJfii2l98B87QDPeCQ=="
+  "resolved" "https://registry.npmjs.org/@metamask/detect-provider/-/detect-provider-2.0.0.tgz"
+  "version" "2.0.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   "integrity" "sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g=="
   "resolved" "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz"

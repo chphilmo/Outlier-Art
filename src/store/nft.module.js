@@ -4,6 +4,8 @@ const API_URL = process.env.VUE_APP_API_URL_NFA;
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
+import detectEthereumProvider from '@metamask/detect-provider';
+
 const ecosysToken = require("../../artifacts/contracts/Archetype.sol/Archetype.json");
 
 const ecosysVendor = require("../../artifacts/contracts/Vendor.sol/Vendor.json");  
@@ -35,19 +37,41 @@ export const nft = {
         }
       }
     },
+    // get current wallet address if the network is not on Polygon Mumbai Testnet
+    // Request user to change network to Polygon Mumbai Testnet
     async getCurrentWallet({ commit }) {
-      if (window.ethereum) {
-        try {
-          const addressArray = await window.ethereum.request({
-            method: "eth_accounts",
-          });
-          if (addressArray.length > 0) {
-            commit('connectWallet', addressArray[0]);
-          }
-        } catch (err) {
-          console.log(err.message);
+      const provider = await detectEthereumProvider();
+      if (provider) {
+        if (provider !== window.ethereum) {
+          console.error('Do you have multiple wallets installed?');
         }
-      }
+        const chainId = await provider.request({
+          method: 'eth_chainId'
+        });
+        if (chainId !== '0x13881') {
+          // Request MetaMask to connect to Polygon Mumbai Testnet
+          await provider.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x13881' }],
+          });
+          console.error('Please connect to the Polygon Mumbai Testnet');
+        } else {
+          try {
+            const addressArray = await window.ethereum.request({
+              method: "eth_accounts",
+            });
+            if (addressArray.length > 0) {
+              commit('connectWallet', addressArray[0]);
+            } else {
+              console.log('Please connect to MetaMask.');
+            }
+          } catch (err) {
+            console.log(err.message);
+          }
+        }
+      } else {
+        console.log('Please install MetaMask!');
+      } 
     },
     async getAccountBalance({ commit }, payload) {
 

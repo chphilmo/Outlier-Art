@@ -25,7 +25,7 @@
         <div class="content3 text-dark">
     
           <h6>
-            Generative Art Marketplace
+            Generative Art Marketplace Testnet
           </h6>
           <h6>
             Interactive Twitter Bot
