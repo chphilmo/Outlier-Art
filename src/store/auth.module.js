@@ -54,6 +54,10 @@ export const auth = {
     },
     async web3Login({ commit }, user) {
       // check if user is registered
+      if (!user.address) {
+        commit('nft/setMessage', "No web3 provider detected", { root: true })
+        return;
+      }
       let registered = await AuthService.isWeb3Registered(user).then(
         response => {
           return Promise.resolve(response.data);

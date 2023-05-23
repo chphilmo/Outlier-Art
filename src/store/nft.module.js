@@ -5,6 +5,7 @@ const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
 import detectEthereumProvider from '@metamask/detect-provider';
+// import EventBus from '../common/EventBus';
 
 const ecosysToken = require("../../artifacts/contracts/Archetype.sol/Archetype.json");
 
@@ -55,6 +56,8 @@ export const nft = {
             params: [{ chainId: '0x13881' }],
           });
           console.error('Please connect to the Polygon Mumbai Testnet');
+          // set message
+          commit('setMessage', 'Please connect to the Polygon Mumbai Testnet');
         } else {
           try {
             const addressArray = await window.ethereum.request({
@@ -62,8 +65,12 @@ export const nft = {
             });
             if (addressArray.length > 0) {
               commit('connectWallet', addressArray[0]);
+              // set message
+              commit('setMessage', `Connected to ${addressArray[0]}`);
             } else {
               console.log('Please connect to MetaMask.');
+              // set message
+              commit('setMessage', 'Please connect to MetaMask.');
             }
           } catch (err) {
             console.log(err.message);
@@ -71,6 +78,8 @@ export const nft = {
         }
       } else {
         console.log('Please install MetaMask!');
+        // set message
+        commit('setMessage', 'Please install MetaMask!');
       } 
     },
     async getAccountBalance({ commit }, payload) {

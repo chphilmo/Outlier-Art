@@ -17,7 +17,8 @@
                 <!--<b-img class="mb-3" src="/outlier.png" min-height="300px" fluid></b-img>-->
 
                 <b-button-group class="mt-3" v-if="!currentUser">
-                  <b-button variant="palette21" size="sm" @click.prevent="web3Login">WEB3</b-button>
+                  <b-button v-if="walletAddress" variant="palette21" size="sm" @click.prevent="web3Login">WEB3</b-button>
+                  <b-button v-else variant="palette21" size="sm" @click.prevent="connectWallet">Connect Wallet</b-button>
                   <b-button variant="palette22" size="sm" :to="'/register'"><b-icon icon="person-plus-fill" /></b-button>
                   <b-button variant="palette23" size="sm" :to="'/login'"><b-icon icon="person-fill" /></b-button>
 
@@ -451,6 +452,9 @@ export default {
       // dispatch login passing walletaddress
       this.$store.dispatch('auth/web3Login', userObj);
     },
+    connectWallet: function () {
+      this.$store.dispatch('nft/connectWallet');
+    }
   }
 };
 </script>

@@ -68,10 +68,17 @@
         <template #button-content class="my-auto">
           <b-icon icon="person-fill" />
         </template>
-        <b-dropdown-item @click.prevent="web3Login">
+        <b-dropdown-item v-if="walletAddress" @click.prevent="web3Login">
 
           <b-icon icon="box-seam" />
           Web3 Login
+
+        </b-dropdown-item>
+
+        <b-dropdown-item v-else @click.prevent="connectWallet">
+
+          <b-icon icon="bag-fill" />
+          connect Wallet
 
         </b-dropdown-item>
 
