@@ -1,6 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import VueMeta from 'vue-meta';
+
+import AuthService from "../services/auth.service";
+import EventBus from "../common/EventBus";
+
 import Home from '../views/Home.vue';
 import Wallet from '../views/Wallet.vue';
 import MintNfa from '../views/MintNfa.vue';
@@ -130,10 +134,15 @@ export const router = new Router({
 router.beforeEach((to, from, next) => {
   const authRequired = to.matched.some(record => record.meta.requiresAuth);
   const loggedIn = localStorage.getItem('user');
+  const verifyToken = loggedIn === true ? AuthService.verifyToken() : true;
+
+  if (!verifyToken) {
+    EventBus.dispatch('logout');
+  }
 
   // trying to access a restricted page + not logged in
   // redirect to login page
-  if (authRequired && !loggedIn) {
+  if (authRequired && !loggedIn && !verifyToken) {
     next('/login');
   } else {
     next();

@@ -18,12 +18,15 @@ const ecosysContract = new web3.eth.Contract(ecosysToken.abi, ecosysAddress);
 
 const vendorContract = new web3.eth.Contract(ecosysVendor.abi, vendorAddress);
 
+const wConnected = localStorage.getItem('walletConnected');
+
 export const nft = {
   namespaced: true,
   state: {
     walletAddress: '',
     balance: '',
-    message: ''
+    message: '',
+    walletConnected: wConnected
   },
   actions: {    
     async connectWallet({ commit }) {
@@ -33,6 +36,9 @@ export const nft = {
             method: "eth_requestAccounts",
           });
           commit('connectWallet', addressArray[0]);
+          // set message
+          commit('setMessage', `Connected to ${addressArray[0]}`);
+          commit('setWalletConnected', true);
         } catch (err) {
           console.log(err.message);
         }
@@ -40,7 +46,11 @@ export const nft = {
     },
     // get current wallet address if the network is not on Polygon Mumbai Testnet
     // Request user to change network to Polygon Mumbai Testnet
-    async getCurrentWallet({ commit }) {
+    async getCurrentWallet({ commit, state }) {
+      if (!state.walletConnected) {
+        commit('setMessage', 'Please connect to the Polygon Mumbai Testnet');
+        return;
+      }
       const provider = await detectEthereumProvider();
       if (provider) {
         if (provider !== window.ethereum) {
@@ -81,6 +91,16 @@ export const nft = {
         // set message
         commit('setMessage', 'Please install MetaMask!');
       } 
+    },
+
+    // disconnect metamask wallet
+    async disconnectWallet({ commit }) {
+      if (window.ethereum) {
+          localStorage.removeItem("walletConnected");
+          commit('connectWallet', '');
+          // set message
+          commit('setMessage', 'Wallet disconnected');
+      }
     },
     async getAccountBalance({ commit }, payload) {
 
@@ -168,6 +188,10 @@ export const nft = {
     },
     setMessage(state, payload) {
       state.message = payload;
+    },
+    setWalletConnected(state, payload) {
+      state.walletConnected = payload;
+      localStorage.setItem("walletConnected", true);
     }
   },
   getters: {
@@ -179,6 +203,9 @@ export const nft = {
     },
     getBalance (state) {
       return state.balance;
+    },
+    isConnectedWallet (state) {
+      return state.walletConnected;
     }
   }
 };

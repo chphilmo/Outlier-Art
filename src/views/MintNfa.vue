@@ -194,7 +194,7 @@ export default {
   },
   mounted() {
     if (!this.currentUser) {
-      this.$router.push('/user/login');
+      this.$router.push('/login');
     }
   },
   methods: {

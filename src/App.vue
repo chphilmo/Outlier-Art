@@ -29,10 +29,15 @@
       </b-collapse>
 
 
-      <b-button @click="connectWallet" size="sm" variant="palette15">
+      <b-button v-if="!walletConnected" @click="connectWallet" size="sm" variant="palette15">
         <b-icon icon="bag-fill"></b-icon>
         {{ wallet }}
 
+      </b-button>
+
+      <b-button v-else @click="disconnectWallet" size="sm" variant="palette15">
+        <b-icon icon="bag-fill"></b-icon>
+        {{ wallet }}
       </b-button>
 
       <b-nav-item-dropdown v-if="currentUser" right no-caret class="d-flex">
@@ -253,7 +258,7 @@ import EventBus from "./common/EventBus";
 export default {
   data() {
     return {
-      showMessage: false
+      showMessage: false,
     };
   },
   metaInfo() {
@@ -271,6 +276,9 @@ export default {
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
+    },
+    walletConnected() {
+      return this.$store.getters['nft/isConnectedWallet'];
     },
     walletAddress() {
       return this.$store.getters['nft/loadedWallet'];
@@ -311,6 +319,9 @@ export default {
     },
     connectWallet: function () {
       this.$store.dispatch('nft/connectWallet');
+    },
+    disconnectWallet: function () {
+      this.$store.dispatch('nft/disconnectWallet');
     }
   },
   mounted() {

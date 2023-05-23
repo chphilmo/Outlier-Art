@@ -109,6 +109,15 @@ class AuthService {
       });
   }
 
+  verifyToken() {
+    return api
+      .get("/auth/verifytoken")
+      .then((response) => {
+       
+        return response;
+      });
+  }
+
   sendVerify() {
     return api.post("/auth/verifymail", {})
       .then(response => {
