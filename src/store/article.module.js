@@ -188,7 +188,12 @@ actions: {
 mutations: {
   createArticle(state, payload) {
     state.articleArray.push(payload)
-    state.category.push(payload.category)
+    const categories = payload.category
+    for (const key in categories) {
+      if (!state.category.includes(categories[key])) {
+        state.category.push(categories[key])
+      }
+    }
   },
   createSection(state, payload) {
     state.sectionId.push(payload.id)
