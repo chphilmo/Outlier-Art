@@ -60,7 +60,7 @@ new Vue({
   store,
   render: h => h(App),
   created () {
-  this.$store.dispatch('nft/getCurrentWallet')
+  // this.$store.dispatch('nft/getCurrentWallet')
   this.$store.dispatch('matter/getEthPrice')
   this.$store.dispatch('auth/fetchCreators')
   this.$store.dispatch('nfa/loadNfa')

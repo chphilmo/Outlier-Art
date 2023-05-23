@@ -161,9 +161,9 @@
     <b-card class="mt-3" bg-variant="light">
     <div>
     <div>Smart Contract</div>
-    <a href="https://etherscan.io/address/0x8b7da288348D4668B037e07213784692799806b9">
-    0x8b7da288348D4668B037e07213784692799806b9</a> |
-    <a href="https://etherscan.io/token/0x8b7da288348D4668B037e07213784692799806b9">Ecosys Token</a>
+    <a href="https://mumbai.polygonscan.com/address/0x94b5d68d7d67045ab2e31182823eedf876172dbc">
+      0x94b5d68d7D67045AB2e31182823EEDf876172dBc</a> |
+    <a href="https://mumbai.polygonscan.com/token/0x94b5d68d7d67045ab2e31182823eedf876172dbc">Ark Token</a>
     </div>
     </b-card>
     </b-card>
