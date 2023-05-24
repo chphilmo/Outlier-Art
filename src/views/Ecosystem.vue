@@ -139,14 +139,14 @@ export default {
         }
     },
     mounted() {
-        this.$store.commit('nft/setMessage', "Welcome to Outlier Art Open on Mumbai Testnet | dev 40% ");
+        this.$store.commit('web3/setMessage', "Welcome to Outlier Art Open on Mumbai Testnet | dev 40% ");
     },
     computed: {
         currentUser() {
             return this.$store.state.auth.user;
         },
         walletAddress() {
-            return this.$store.getters['nft/loadedWallet'];
+            return this.$store.getters['web3/loadedWallet'];
         },
         wallet() {
             if (this.walletAddress === '') {

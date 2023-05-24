@@ -1,63 +1,87 @@
 import AuthService from '../services/auth.service';
 require('dotenv').config();
-const API_URL = process.env.VUE_APP_API_URL;
+const API_URL = process.env.VUE_APP_API_URL_WEB3;
 
 //import EventBus from '../common/EventBus';
 
+// Web3 library MetaMask Authentication
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
-const web3 = createAlchemyWeb3(API_URL);
+const web3_al = createAlchemyWeb3(API_URL);
 
+// Retrieve user from local storage
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
   ? { status: { loggedIn: true }, user }
   : { status: { loggedIn: false }, user: null }
 
 export const auth = {
+  // modules are namespaced by default
   namespaced: true,
+  // variables state
   state: {
     ...initialState,
     creators: [],
   },
   actions: {
+    /*
+    @dev: login
+    @params: user.username, user.email
+    @return: user
+    */
     login({ commit }, user) {
       return AuthService.login(user).then(
         user => {
           commit('loginSuccess', user);
-          commit('nft/setMessage', `Logged in: ${user.username}`, { root: true })
+          commit('web3/setMessage', `Logged in: ${user.username}`, { root: true })
           return Promise.resolve(user);
         },
         error => {
           commit('loginFailure');
-          commit('nft/setMessage', `Login failed`, { root: true })
+          commit('web3/setMessage', `Login failed`, { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: logout
+    */
     logout({ commit }) {
       AuthService.logout();
       commit('logout');
-      commit('nft/setMessage', "Logged out", { root: true })
+      commit('web3/setMessage', "Logged out", { root: true })
     },
+    /*
+    @dev: register
+    @params: user.username, user.email, user.password
+    @return: user
+    */
     register({ commit }, user) {
       return AuthService.register(user).then(
         response => {
           commit('registerSuccess');
-          commit('nft/setMessage', `Register success`, { root: true })
+          commit('web3/setMessage', `Register success`, { root: true })
           return Promise.resolve(response.data);
         },
         error => {
           commit('registerFailure');
-          commit('nft/setMessage', `Register failed`, { root: true })
+          commit('web3/setMessage', `Register failed`, { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: web3Login
+    @params: user.address
+    @return: user
+    */
     async web3Login({ commit }, user) {
       // check if user is registered
       if (!user.address) {
-        commit('nft/setMessage', "No web3 provider detected", { root: true })
+        commit('web3/setMessage', "No web3 provider detected", { root: true })
         return;
       }
+
+      // Call API to check if user is registered
       let registered = await AuthService.isWeb3Registered(user).then(
         response => {
           return Promise.resolve(response.data);
@@ -90,101 +114,138 @@ export const auth = {
       }
 
       const message = nonce + user.address;
-      const signature = await web3.eth.personal.sign(message, user.address);
+      const signature = await web3_al.eth.personal.sign(message, user.address);
 
       // send signature to server
       return AuthService.web3Login(userData, signature).then(
         user => {
           commit('loginSuccess', user);
-          commit('nft/setMessage', `Logged in: ${user.address}`, { root: true })
+          commit('web3/setMessage', `Logged in: ${user.address}`, { root: true })
           return Promise.resolve(user);
         },
         error => {
           commit('loginFailure');
-          commit('nft/setMessage', "Login Failed", { root: true })
+          commit('web3/setMessage', "Login Failed", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: refreshToken
+    @params: accessToken
+    @return: accessToken
+    */
     refreshToken({ commit }, accessToken) {
       commit('refreshToken', accessToken);
     },
 
+    /*
+    @dev: editProfile
+    @params: payload.id, payload.username, payload.email, payload.imageUrl, payload.bio, payload.website, payload.twitter 
+    @return: user
+    */
     editProfile({ commit }, payload) {
       return AuthService.editProfile(payload).then(
         data => {
           commit('editProfile', data);
-          commit('nft/setMessage', "Profile updated", { root: true })
+          commit('web3/setMessage', "Profile updated", { root: true })
           return Promise.resolve(data);
         },
         error => {
           console.log(error)
-          commit('nft/setMessage', "Error updating Profile", { root: true })
+          commit('web3/setMessage', "Error updating Profile", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: uploadProfileImg
+    @params: payload.id, payload.imageUrl
+    @return: user
+    */
     uploadProfileImg({ commit, dispatch }, payload) {
       return AuthService.upload(payload).then(
         data => {
           commit('uploadProfileImg', data);
-          commit('nft/setMessage', "Profile image updated", { root: true })
+          commit('web3/setMessage', "Profile image updated", { root: true })
           return Promise.resolve(data);
         },
         error => {
           if (error.response && error.response.status === 403) {
             dispatch('logout')
           }
-          commit('nft/setMessage', "Error updating Profile image", { root: true })
+          commit('web3/setMessage', "Error updating Profile image", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: only for admin, delete user by id
+    @params: id
+    @return: data.message
+    */
     deleteUserById({ commit, dispatch }, id) {
       return AuthService.deleteUserById(id).then(
         data => {
-          commit('nft/setMessage', data.message, { root: true })
+          commit('web3/setMessage', data.message, { root: true })
           return Promise.resolve(data);
         },
         error => {
           if (error.response && error.response.status === 403) {
             dispatch('logout')
           }
-          commit('nft/setMessage', "Error deleting user", { root: true })
+          commit('web3/setMessage', "Error deleting user", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: delete user
+    @params: none
+    @return: data.message
+    */
     deleteUser({ commit }) {
       return AuthService.deleteUser().then(
         data => {
           commit('logout');
-          commit('nft/setMessage', data.message, { root: true })
+          commit('web3/setMessage', data.message, { root: true })
           return Promise.resolve(data);
         },
         error => {
           console.log(error)
-          commit('nft/setMessage', "Error deleting User", { root: true })
+          commit('web3/setMessage', "Error deleting User", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: sendVerify
+    @params: none
+    @return: data.message
+
+    Send a confirmation email to the user
+    */
     sendVerify ({ commit, dispatch }) {
       return AuthService.sendVerify().then(
         (data) => {
           // commit('sendVerify', data)
-          commit('nft/setMessage', data.message, { root: true });
+          commit('web3/setMessage', data.message, { root: true });
           return Promise.resolve(data)
         },
         (error) => {
           if (error.response && error.response.status === 403) {
             dispatch('logout')
           }
-          commit('nft/setMessage', `Error sending email: ${error}`, { root: true })
+          commit('web3/setMessage', `Error sending email: ${error}`, { root: true })
           return Promise.reject(error)
         }
       )
     },
+    /*
+    @dev: fetchCreators -> Community
+    @params: none
+    @return: creators array
+    */
     fetchCreators({ commit }) {
       return AuthService.fetchCreators().then(
         data => {
@@ -192,11 +253,16 @@ export const auth = {
           return Promise.resolve(data);
         },
         error => {
-          commit('nft/setMessage', "Error fetching creators", { root: true })
+          commit('web3/setMessage', "Error fetching creators", { root: true })
           return Promise.reject(error);
         }
       );
     },
+    /*
+    @dev: whitelistAddress
+    @params: payload.address
+    @return: data.message
+    */
     async whitelistAddress({ commit }, payload) {
       const address = payload.address;
    
@@ -204,16 +270,17 @@ export const auth = {
       AuthService.whitelistAddress(address).then(
         data => {
 
-          commit('nft/setMessage', data.message)
+          commit('web3/setMessage', data.message)
           return Promise.resolve(data);
         },
         error => {
-          commit('nft/setMessage', "Whitelist Failed", { root: true })
+          commit('web3/setMessage', "Whitelist Failed", { root: true })
           return Promise.reject(error);
         }
       );
     },
   },
+  // Setters
   mutations: {
     loginSuccess(state, user) {
       state.status.loggedIn = true;
@@ -252,6 +319,7 @@ export const auth = {
       state.creators = payload;
     },
   },
+  // Getters
   getters: {
     loadedCreators(state) {
       return state.creators;

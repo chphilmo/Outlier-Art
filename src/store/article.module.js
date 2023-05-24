@@ -1,5 +1,6 @@
 import ArticleService from '../services/article.service'
 
+// addEventListner, dispatch, removeEventListner
 import EventBus from '../common/EventBus'
 
 export const article = {
@@ -12,6 +13,11 @@ export const article = {
   category: []
 },
 actions: {
+  /*
+  @dev: createArticle
+  @params: article.title, article.section, article.category, article.imgUrl
+  @return: article
+  */
   createArticle({ commit }, payload) {
     return ArticleService.create(payload).then(
       (data) => {

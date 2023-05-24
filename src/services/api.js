@@ -1,9 +1,12 @@
 import axios from "axios";
 
+require('dotenv').config();
+const API_KEY = process.env.MESSARI_API_KEY;
+
 const instance = axios.create({
   baseURL: "https://data.messari.io/api/v1/assets/ethereum",
   headers: {
-    "x-messari-api-key": "09e514f4-4312-4cf5-a900-bed7f769b698",
+    "x-messari-api-key": API_KEY,
   },
 });
 

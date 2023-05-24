@@ -285,14 +285,14 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit('nft/setMessage', "Welcome to Outlier Art | dev 60% ");
+    this.$store.commit('web3/setMessage', "Welcome to Outlier Art | dev 60% ");
   },
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
     },
     walletAddress() {
-      return this.$store.getters['nft/loadedWallet'];
+      return this.$store.getters['web3/loadedWallet'];
     },
     wallet() {
       if (this.walletAddress === '') {
@@ -316,7 +316,7 @@ export default {
       this.$store.dispatch('auth/web3Login', userObj);
     },
     connectWallet: function () {
-      this.$store.dispatch('nft/connectWallet');
+      this.$store.dispatch('web3/connectWallet');
     }
   }
 };

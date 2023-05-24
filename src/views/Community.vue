@@ -63,7 +63,7 @@ export default {
             const data = {
                 address: address
             }
-            this.$store.dispatch('nft/whitelistAddress', data)
+            this.$store.dispatch('web3/whitelistAddress', data)
 
         },
     }

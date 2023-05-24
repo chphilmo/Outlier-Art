@@ -271,10 +271,10 @@ export default {
       return this.$store.state.auth.user;
     },
     walletConnected() {
-      return this.$store.getters['nft/isConnectedWallet'];
+      return this.$store.getters['web3/isConnectedWallet'];
     },
     walletAddress() {
-      return this.$store.getters['nft/loadedWallet'];
+      return this.$store.getters['web3/loadedWallet'];
     },
     wallet() {
       if (this.walletAddress === '') {
@@ -284,7 +284,7 @@ export default {
       }
     },
     message() {
-      return this.$store.getters['nft/getMessage'];
+      return this.$store.getters['web3/getMessage'];
     }
   },
   watch: {
@@ -311,10 +311,10 @@ export default {
       this.$store.dispatch('auth/web3Login', userObj);
     },
     connectWallet: function () {
-      this.$store.dispatch('nft/connectWallet');
+      this.$store.dispatch('web3/connectWallet');
     },
     disconnectWallet: function () {
-      this.$store.dispatch('nft/disconnectWallet');
+      this.$store.dispatch('web3/disconnectWallet');
     }
   },
   mounted() {

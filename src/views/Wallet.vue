@@ -188,7 +188,7 @@ export default {
   },
   mounted() {
     if (this.walletAddress) {
-    this.$store.dispatch('nft/getAccountBalance', this.walletAddress);
+    this.$store.dispatch('web3/getAccountBalance', this.walletAddress);
     }
   },
   computed: {
@@ -196,7 +196,7 @@ export default {
       return this.$store.state.auth.user;
     },
     walletAddress () {
-      return this.$store.getters['nft/loadedWallet'];
+      return this.$store.getters['web3/loadedWallet'];
     },
     wallet () {
       if (this.walletAddress === '') {
@@ -206,7 +206,7 @@ export default {
       }
     },
     Balance () {
-      return this.$store.getters['nft/getBalance'];
+      return this.$store.getters['web3/getBalance'];
     },
     EthPrice () {
       let price = this.$store.getters['matter/getEthPrice'];
@@ -219,16 +219,16 @@ export default {
   watch: {
     walletAddress (value) {
       if (value) {
-        this.$store.dispatch('nft/getAccountBalance', value);
+        this.$store.dispatch('web3/getAccountBalance', value);
       }
     },
   },
   methods: {
     connectWallet: function() {
-      this.$store.dispatch('nft/connectWallet');
+      this.$store.dispatch('web3/connectWallet');
     },
     fetchBalance: function() {
-      this.$store.dispatch('nft/getAccountBalance', this.walletAddress);
+      this.$store.dispatch('web3/getAccountBalance', this.walletAddress);
     },
     getEthPrice: function() {
       
@@ -243,7 +243,7 @@ export default {
       const Data = {
         address: this.walletAddress
       }
-      this.$store.dispatch('nft/withdrawToken', Data);
+      this.$store.dispatch('web3/withdrawToken', Data);
     },
     checkFormValidity() {
         const valid = this.$refs.form.checkValidity()
@@ -275,7 +275,7 @@ export default {
           amount: this.amount,
           walletAddress: this.walletAddress
         }
-        this.$store.dispatch('nft/buyEco', Data);
+        this.$store.dispatch('web3/buyEco', Data);
         
         this.$nextTick(() => {
           this.$bvModal.hide('modal-prevent-closing')
@@ -312,7 +312,7 @@ export default {
           walletAddress: this.walletAddress
         }
        
-        this.$store.dispatch('nft/sellEco', Data);
+        this.$store.dispatch('web3/sellEco', Data);
         
         this.$nextTick(() => {
           this.$bvModal.hide('modal-set-sell')

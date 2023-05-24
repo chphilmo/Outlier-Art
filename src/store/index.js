@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { nft } from './nft.module';
-import { matter } from './matter.module';
+import { web3 } from './web3.module';
 import { auth } from './auth.module';
-import { nfa } from './nfa.module';
 import { article } from './article.module';
 
 Vue.use(Vuex)
@@ -19,10 +17,8 @@ export default new Vuex.Store({
   getters: {
   },
   modules: {
-  nft,
-  matter,
+  web3,
   auth,
-  nfa,
   article
   }
 })

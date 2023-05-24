@@ -6,14 +6,6 @@ import AuthService from "../services/auth.service";
 import EventBus from "../common/EventBus";
 
 import Home from '../views/Home.vue';
-/*
-import Wallet from '../views/Wallet.vue';
-import MintNfa from '../views/MintNfa.vue';
-import ManageNfa from '../views/ManageNfa.vue';
-import Nfa from '../views/Nfa.vue';
-import Contract from '../views/Contract.vue';
-import WhitePaper from '../views/WhitePaper.vue';
-*/
 import Community from '../views/Community.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
@@ -40,41 +32,6 @@ export const router = new Router({
       path: '/home',
       component: Home
     },
-    /*
-    {
-      path: '/wallet',
-      name: 'wallet',
-      component: Wallet
-    },
-    {
-      path: '/whitepaper',
-      name: 'whitepaper',
-      component: WhitePaper
-    },
-    {
-      path: '/mint',
-      name: 'mintnfa',
-      component: MintNfa,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/manage/:id',
-      name: 'managenfa',
-      component: ManageNfa,
-      props: true,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/contract',
-      name: 'contract',
-      component: Contract,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/nfa',
-      name: 'nfa',
-      component: Nfa
-    },*/
     {
       path: '/articles',
       name: 'articles',
